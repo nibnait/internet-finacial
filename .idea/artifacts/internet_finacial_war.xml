@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="internet-finacial:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="internet-finacial.war">
+      <element id="artifact" artifact-name="internet-finacial:war exploded" />
+    </root>
+  </artifact>
+</component>
