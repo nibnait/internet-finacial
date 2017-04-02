@@ -2,7 +2,7 @@ package com.ifp.api.struct.login;
 
 public class UserModel {
     private String loginpwd;
-    private String nickname;
+    private String phone;
     private Integer role;
 
     public String getLoginpwd() {
@@ -13,12 +13,12 @@ public class UserModel {
         this.loginpwd = loginpwd;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Integer getRole() {

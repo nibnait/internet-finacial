@@ -3622,7 +3622,7 @@ CREATE TABLE `user` (
   `idnum` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `loginpwd` varchar(255) DEFAULT NULL,
-  `nickname` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `province` varchar(255) DEFAULT NULL,
   `realname` varchar(255) DEFAULT NULL,

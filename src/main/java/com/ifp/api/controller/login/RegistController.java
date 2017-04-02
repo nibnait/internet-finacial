@@ -22,14 +22,14 @@ public class RegistController {
     private UserService userService;
 
     @RequestMapping("/regist")
-    public ApiResultModel doRegist(@RequestParam String nickname, @RequestParam String password, @RequestParam String code, @RequestParam Integer role, HttpSession session){
+    public ApiResultModel doRegist(@RequestParam String userPhone, @RequestParam String password, @RequestParam String code, @RequestParam Integer role, HttpSession session){
         if (StringUtils.isEmpty(code)) {
             return ErrorsResult.CAPTCHA_NOT_BLANK;
         }
         if (!LoginHelper.checkCaptcha(code, session)){
             return ErrorsResult.CAPTCHA_ILLEGAL;
         }
-        if(!LoginHelper.checkUserName(nickname)){
+        if(!LoginHelper.checkUserPhone(userPhone)){
             return ErrorsResult.ACCOUNT_ILLEGAL;
         }
         if (role==null){
@@ -39,7 +39,7 @@ public class RegistController {
             return ErrorsResult.ROLE_ILLEGAL;
         }
         UserModel user = new UserModel();
-        user.setNickname(nickname);
+        user.setPhone(userPhone);
         user.setLoginpwd(password);
         user.setRole(role);
         Integer result = userService.doRegister(user);

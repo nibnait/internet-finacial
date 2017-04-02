@@ -11,8 +11,8 @@ import javax.servlet.http.HttpSession;
 
 @Resource
 public class LoginHelper {
-    public static boolean checkUserName(String nickname) {
-        if (StringUtils.isNotBlank(nickname) && AccountUtils.isNickName(nickname)) {
+    public static boolean checkUserPhone(String nickname) {
+        if (StringUtils.isNotBlank(nickname) && AccountUtils.isMobileNo(nickname)) {
             return true;
         } else {
             return false;

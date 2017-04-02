@@ -17,7 +17,7 @@ public class UserService {
 
     public Integer doLogin(UserModel userModel) {
         UserEntity user = new UserEntity();
-        user.setNickname(userModel.getNickname());
+        user.setPhone(userModel.getPhone());
         user.setLoginpwd(userModel.getLoginpwd());
         user.setRole(userModel.getRole());
         user.setUserid(UUID.randomUUID().toString());
@@ -40,10 +40,10 @@ public class UserService {
     public Integer doRegister(UserModel userModel){
         int result;
         UserEntity user = new UserEntity();
-        user.setNickname(userModel.getNickname());
+        user.setPhone(userModel.getPhone());
         user.setLoginpwd(userModel.getLoginpwd());
         user.setRole(userModel.getRole());
-        user.setUserid(UUID.randomUUID().toString());
+        user.setUserid(UUID.randomUUID().toString().replace("-", ""));
         user.setRegistertime(new Date());
         if (userDao.userExisted(user)){
             result = Constants.USER_EXISTED;

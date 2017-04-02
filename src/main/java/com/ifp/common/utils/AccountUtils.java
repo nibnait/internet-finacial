@@ -22,9 +22,5 @@ public class AccountUtils {
         Matcher m = p.matcher(email);
         return m.matches();
     }
-
-    public static boolean isNickName(String nickname) {
-        return true;
-    }
 }
 

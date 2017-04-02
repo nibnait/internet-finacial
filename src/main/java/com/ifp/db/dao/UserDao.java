@@ -2,6 +2,7 @@ package com.ifp.db.dao;
 
 import com.ifp.db.entity.UserEntity;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -19,9 +20,17 @@ public class UserDao extends HibernateBaseDao<UserEntity> {
         return !result.isEmpty();
     }
 
+    public String getUserIdByUserPhone(String userPhone) {
+        ensureSession();
+        SQLQuery sqlQuery = session.createSQLQuery("select userId from user where phone = :userPhone");
+        sqlQuery.setString("userPhone", userPhone);
+        String userId = (String) sqlQuery.uniqueResult();
+        return userId;
+    }
+
     public UserEntity findByUserName(UserEntity user) {
-        if (user.getNickname()!=null){
-            return findBy("nickname", user.getNickname());
+        if (user.getPhone()!=null){
+            return findBy("phone", user.getPhone());
         } else {
             return null;
         }

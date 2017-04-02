@@ -14,11 +14,11 @@
 
 #### URL：/api/regist
 
-#### 请求方式：POST
+#### 请求方式：GET
 
 参数名|类型|必选|说明
 -----|---|----|---|
-nickname|String|√|用户名
+userPhone|String|√|用户名
 password|String|√|密码
 code|String|√|图片验证码上的文字
 role|int|√|角色 1：普通客户 2：企业账号
@@ -37,13 +37,13 @@ role|int|√|角色 1：普通客户 2：企业账号
 
 #### URL：/api/login
 
-#### 请求方式：POST
+#### 请求方式：GET
 
 #### 参数列表：
 
 参数名|类型|必选|说明
 -----|---|----|---|
-username|String|√|用户名
+userPhone|String|√|用户名
 password|String|√|密码
 code|String|√|图片验证码上的文字
 role|int|√|角色 1：普通客户 2：企业账号
