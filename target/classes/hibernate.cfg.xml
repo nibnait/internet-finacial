@@ -27,7 +27,11 @@
         <!--连接池配置-->
 
         <!-- 添加映射 -->
-        <!--user-->
         <mapping class="com.ifp.db.entity.UserEntity"/>
+        <mapping class="com.ifp.db.entity.ProjectEntity"/>
+        <mapping class="com.ifp.db.entity.DataDicEntity"/>
+        <mapping class="com.ifp.db.entity.locationDic.ProvinceEntity"/>
+        <mapping class="com.ifp.db.entity.locationDic.CityEntity"/>
+        <mapping class="com.ifp.db.entity.locationDic.TownEntity"/>
     </session-factory>
 </hibernate-configuration>

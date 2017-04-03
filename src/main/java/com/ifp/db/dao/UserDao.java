@@ -15,8 +15,8 @@ public class UserDao extends HibernateBaseDao<UserEntity> {
 
     public boolean userExisted(UserEntity user) {
         ensureSession();
-        Query query = session.createQuery("from UserEntity u where u.nickname=?");
-        List result = findAllWithQuery(null,query,user.getNickname());
+        Query query = session.createQuery("from UserEntity u where u.phone=?");
+        List result = findAllWithQuery(null,query,user.getPhone());
         return !result.isEmpty();
     }
 
@@ -34,5 +34,12 @@ public class UserDao extends HibernateBaseDao<UserEntity> {
         } else {
             return null;
         }
+    }
+
+    public Integer getUserRoleById(String userId) {
+        ensureSession();
+        return (Integer) session.createSQLQuery("select role from user where userId = :userId")
+                .setString("userId", userId)
+                .uniqueResult();
     }
 }

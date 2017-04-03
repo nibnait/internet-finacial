@@ -2,7 +2,7 @@ package com.ifp.api.controller.login;
 
 import com.ifp.common.ResultBuilder;
 import com.ifp.common.models.ApiResultModel;
-import com.ifp.api.struct.login.CaptchaModel;
+import com.ifp.api.resultModel.login.CaptchaModel;
 import org.patchca.color.RandomColorFactory;
 import org.patchca.filter.predefined.CurvesRippleFilterFactory;
 import org.patchca.service.ConfigurableCaptchaService;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;

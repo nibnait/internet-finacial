@@ -3615,14 +3615,13 @@ INSERT INTO `ifp_town` VALUES ('3144', '659004', '五家渠市', '659000');
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `userId` varchar(255) NOT NULL,
-  `addr` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
   `birthday` datetime DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `idnum` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `loginpwd` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `province` varchar(255) DEFAULT NULL,
   `realname` varchar(255) DEFAULT NULL,

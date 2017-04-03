@@ -1,6 +1,6 @@
-package com.ifp.service;
+package com.ifp.service.user;
 
-import com.ifp.api.struct.login.UserModel;
+import com.ifp.api.resultModel.login.UserModel;
 import com.ifp.common.Constants;
 import com.ifp.db.dao.UserDao;
 import com.ifp.db.entity.UserEntity;
@@ -20,7 +20,7 @@ public class UserService {
         user.setPhone(userModel.getPhone());
         user.setLoginpwd(userModel.getLoginpwd());
         user.setRole(userModel.getRole());
-        user.setUserid(UUID.randomUUID().toString());
+        user.setUserId(UUID.randomUUID().toString());
         user.setRegistertime(new Date());
         UserEntity userInfo;
         try {
@@ -43,7 +43,7 @@ public class UserService {
         user.setPhone(userModel.getPhone());
         user.setLoginpwd(userModel.getLoginpwd());
         user.setRole(userModel.getRole());
-        user.setUserid(UUID.randomUUID().toString().replace("-", ""));
+        user.setUserId(UUID.randomUUID().toString().replace("-", ""));
         user.setRegistertime(new Date());
         if (userDao.userExisted(user)){
             result = Constants.USER_EXISTED;
@@ -51,5 +51,9 @@ public class UserService {
             result = userDao.insert(user) ? Constants.SUCCESS : Constants.DB_ERROR;
         }
         return result;
+    }
+
+    public Integer getUserRoleById(String userId){
+        return  userDao.getUserRoleById(userId);
     }
 }

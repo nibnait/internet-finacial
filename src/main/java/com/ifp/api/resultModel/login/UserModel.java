@@ -1,4 +1,4 @@
-package com.ifp.api.struct.login;
+package com.ifp.api.resultModel.login;
 
 public class UserModel {
     private String loginpwd;

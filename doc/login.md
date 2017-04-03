@@ -53,8 +53,10 @@ role|int|√|角色 1：普通客户 2：企业账号
 #### 返回JSON示例：
 ```js
 {
-    status: 0,
-    msg: "登录成功"
+    "status": 0,
+    "data": {
+        "userId": "fd7917c5312a4e818e3ae58bb997e9e4"
+    }
 }
 ```
 

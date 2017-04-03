@@ -1,6 +1,5 @@
 package com.ifp.db.entity;
 
-
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -14,7 +13,7 @@ import java.util.Date;
 @DynamicUpdate
 @Table(name = "user", schema = "ifp", catalog = "")
 public class UserEntity {
-    private String userid;
+    private String userId;
     private String addr;
     private Date birthday;
     private String city;
@@ -32,14 +31,23 @@ public class UserEntity {
     private String transpwd;
     private String job;
     private String sex;
+    private double balance = 0;
 
     @Id
-    public String getUserid() {
-        return userid;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid == null ? null : userid.trim();
+    public void setUserId(String userId) {
+        this.userId = userId == null ? null : userId.trim();
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     public String getAddr() {

@@ -1,12 +1,12 @@
 package com.ifp.api.controller.login;
 
 import com.ifp.api.helper.LoginHelper;
-import com.ifp.api.struct.login.UserModel;
+import com.ifp.api.resultModel.login.UserModel;
 import com.ifp.common.Constants;
 import com.ifp.common.ErrorsResult;
 import com.ifp.common.ResultBuilder;
 import com.ifp.common.models.ApiResultModel;
-import com.ifp.service.UserService;
+import com.ifp.service.user.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

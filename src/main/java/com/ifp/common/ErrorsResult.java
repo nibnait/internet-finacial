@@ -28,9 +28,13 @@ public interface ErrorsResult {
 
     ApiResultModel ACCOUNT_ILLEGAL = ResultBuilder.getError(-207, "用户名不合法");
 
+    ApiResultModel EMAIL_ILLEGAL = ResultBuilder.getError(-207, "邮箱不合法");
+
     ApiResultModel CAPTCHA_ILLEGAL = ResultBuilder.getError(-208, "验证码错误");
 
     ApiResultModel CAPTCHA_NOT_BLANK = ResultBuilder.getError(-209, "验证码为空");
+
+    ApiResultModel NO_PERMISSION = ResultBuilder.getError(-210, "对不起，您是个人账户，无法申请贷款");
 
     /**
      * -5xx 数据库\服务器错误

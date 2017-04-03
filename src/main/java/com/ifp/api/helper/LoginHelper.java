@@ -1,8 +1,5 @@
 package com.ifp.api.helper;
 
-import com.ifp.api.struct.login.UserModel;
-import com.ifp.common.ErrorsResult;
-import com.ifp.common.models.ApiResultModel;
 import com.ifp.common.utils.AccountUtils;
 import org.apache.commons.lang3.StringUtils;
 
