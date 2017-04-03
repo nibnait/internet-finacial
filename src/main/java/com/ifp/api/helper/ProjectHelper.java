@@ -1,6 +1,6 @@
 package com.ifp.api.helper;
 
-import com.ifp.api.resultModel.project.ProjectResultModel;
+import com.ifp.api.resultModel.project.ProjectModel;
 import com.ifp.common.utils.TimeUtils;
 import com.ifp.db.entity.ProjectEntity;
 
@@ -11,8 +11,8 @@ import java.util.List;
 @Resource
 public class ProjectHelper {
 
-    public static ProjectResultModel convert2ProjectResultModel(ProjectEntity projectEntity) {
-        ProjectResultModel resultModel = new ProjectResultModel();
+    public static ProjectModel convert2ProjectResultModel(ProjectEntity projectEntity) {
+        ProjectModel resultModel = new ProjectModel();
         resultModel.setProjectId(projectEntity.getProjectId());
         resultModel.setTitle(projectEntity.getTitle());
         resultModel.setDescription(projectEntity.getDescription());

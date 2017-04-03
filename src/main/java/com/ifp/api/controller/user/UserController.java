@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class UserController {
 
@@ -93,7 +95,7 @@ public class UserController {
      */
     @RequestMapping("/user/{userId}")
     public ApiResultModel getUserInfo(String userId){
-        UserEntity user = userDao.findById(userId);
+        UserEntity user = userDao.findBy("userId", userId);
         if (user != null) {
             UserInfo userInfo = UserHelper.convert2UserInfo(user);
             return ResultBuilder.getSuccess(userInfo);
@@ -101,5 +103,4 @@ public class UserController {
             return ErrorsResult.USER_NOT_EXISTED;
         }
     }
-
 }

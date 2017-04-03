@@ -39,7 +39,7 @@ public class UserEntity {
     }
 
     public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
+        this.userId = userId == null ? "0" : userId.trim();
     }
 
     public double getBalance() {

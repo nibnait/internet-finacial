@@ -9,22 +9,23 @@
 {
   "status": 0,
   "data": {
-    "userId": "fd7917c5312a4e818e3ae58bb997e9e4",
+    "userId": "1",
     "address": "",
     "birthday": "",
     "email": "",
     "idnum": "",
     "image": "",
     "nickname": "",
-    "phone": "13111111111",
+    "phone": "15129076522",
     "realname": "",
-    "registertime": "2017-04-02 18:57:16",
+    "registertime": "2017-04-02 15:48:13",
     "role": 2,
     "province": "",
     "city": "",
     "town": "",
     "job": "",
-    "sex": ""
+    "sex": "",
+    "balance": 0.0
   }
 }
 ```

@@ -3,14 +3,14 @@ Navicat MySQL Data Transfer
 
 Source Server         : localhost
 Source Server Version : 50600
-Source Host           : localhost:3306
+Source Host           : 127.0.0.1:3306
 Source Database       : ifp
 
 Target Server Type    : MYSQL
 Target Server Version : 50600
 File Encoding         : 65001
 
-Date: 2016-08-27 06:55:02
+Date: 2017-04-03 19:40:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -38,6 +38,8 @@ INSERT INTO `datadic` VALUES ('5', '职业', '5', '生产/制造/运输/服务/�
 INSERT INTO `datadic` VALUES ('6', '职业', '6', '农/林/牧/渔/水利业等人员');
 INSERT INTO `datadic` VALUES ('7', '职业', '7', '政府/科研/非盈利机构等人员');
 INSERT INTO `datadic` VALUES ('8', '职业', '8', '学生/兼职/实习/社工/其他人员');
+INSERT INTO `datadic` VALUES ('9', '项目标签', '1', '房屋抵押');
+INSERT INTO `datadic` VALUES ('10', '项目标签', '2', '可转让');
 
 -- ----------------------------
 -- Table structure for ifp_city
@@ -3610,18 +3612,44 @@ INSERT INTO `ifp_town` VALUES ('3143', '659003', '图木舒克市', '659000');
 INSERT INTO `ifp_town` VALUES ('3144', '659004', '五家渠市', '659000');
 
 -- ----------------------------
+-- Table structure for project
+-- ----------------------------
+DROP TABLE IF EXISTS `project`;
+CREATE TABLE `project` (
+  `projectId` varchar(255) NOT NULL,
+  `applyAmount` int(11) DEFAULT NULL,
+  `bought` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `tags` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `endDate` datetime DEFAULT NULL,
+  `interest` double NOT NULL,
+  `beginDate` datetime DEFAULT NULL,
+  `minBought` int(11) DEFAULT NULL,
+  `userId` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`projectId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of project
+-- ----------------------------
+INSERT INTO `project` VALUES ('2324ksd', '2222', '0', '测试项目2', '可转让', 'test', '2017-07-28 17:52:31', '10', '2017-04-25 17:52:41', '500', '333');
+INSERT INTO `project` VALUES ('asdfasfd', '1111', '100', '测试项目1', '房屋抵押,可转让', '甩卖甩卖', '2017-04-30 17:51:40', '8', '2017-04-01 17:51:50', '100', 'fd7917c5312a4e818e3ae58bb997e9e4');
+
+-- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `userId` varchar(255) NOT NULL,
-  `address` varchar(255) DEFAULT NULL,
+  `addr` varchar(255) DEFAULT NULL,
   `birthday` datetime DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `idnum` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `loginpwd` varchar(255) DEFAULT NULL,
+  `nickname` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `province` varchar(255) DEFAULT NULL,
   `realname` varchar(255) DEFAULT NULL,
@@ -3631,13 +3659,16 @@ CREATE TABLE `user` (
   `transpwd` varchar(255) DEFAULT NULL,
   `job` int(11) DEFAULT NULL,
   `sex` varchar(255) DEFAULT NULL,
+  `balance` double DEFAULT '0',
   PRIMARY KEY (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('3754cf80-4662-4e88-9604-03eee03eee76', null, null, null, null, null, null, '123123', 'uu728999', null, null, null, '2016-08-26 05:38:37', '2', null, null, '0', null);
-INSERT INTO `user` VALUES ('404e69f9-f89c-409b-afb8-b1269e63fb36', null, null, null, null, null, null, '456', '456', null, null, null, '2016-08-27 04:58:45', '1', null, null, '0', null);
-INSERT INTO `user` VALUES ('6851d877-380e-406e-a87e-1b8e11a8db28', null, null, null, null, null, null, '123', '123', null, null, null, '2016-08-26 15:19:14', '1', null, null, '0', null);
-INSERT INTO `user` VALUES ('7e29fe2a-fa80-4db6-a317-d87a4f766c79', null, null, null, null, null, null, '123123', 'uu78999', null, null, null, '2016-08-26 05:38:32', '1', null, null, '0', null);
+INSERT INTO `user` VALUES ('1', null, null, null, null, null, null, '111111', null, '15129076522', null, null, '2017-04-02 15:48:13', '2', null, null, null, null, '0');
+INSERT INTO `user` VALUES ('21fccd98-b1ea-4ec8-b00c-5e7c20811c8a', null, null, null, null, null, null, 'zhangmengmeng', '13288884444', null, null, null, '2017-04-02 14:55:17', '1', null, null, null, null, '0');
+INSERT INTO `user` VALUES ('2a9e86e5-c744-477c-ad5b-386aed1f3b61', null, null, null, null, null, null, '123456', 'mengmeng', null, null, null, '2017-02-28 04:21:16', '2', null, null, null, null, '0');
+INSERT INTO `user` VALUES ('91a02e4a-134d-47de-9c13-aae01b8715c9', null, null, null, null, null, null, '11111111', '18710847308', null, null, null, '2017-03-21 23:49:28', '1', null, null, null, null, '0');
+INSERT INTO `user` VALUES ('976c9b4a-839a-488d-b87e-fcc6160f23f9', null, null, null, null, null, null, '111111', '18710847300', null, null, null, '2017-04-02 15:06:54', '1', null, null, null, null, '0');
+INSERT INTO `user` VALUES ('fd7917c5312a4e818e3ae58bb997e9e4', '112222', null, null, null, null, null, null, null, null, null, null, '2017-04-02 18:57:16', '2', null, null, null, null, '0');

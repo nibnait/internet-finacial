@@ -29,7 +29,7 @@ public class UserDao extends HibernateBaseDao<UserEntity> {
     }
 
     public UserEntity findByUserName(UserEntity user) {
-        if (user.getPhone()!=null){
+        if (user.getPhone() != null) {
             return findBy("phone", user.getPhone());
         } else {
             return null;

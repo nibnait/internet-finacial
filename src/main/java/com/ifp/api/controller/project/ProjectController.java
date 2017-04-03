@@ -1,6 +1,7 @@
 package com.ifp.api.controller.project;
 
 import com.ifp.api.helper.ProjectHelper;
+import com.ifp.api.resultModel.project.ProjectModel;
 import com.ifp.api.resultModel.project.ProjectResultModel;
 import com.ifp.common.ErrorsResult;
 import com.ifp.common.ResultBuilder;
@@ -30,16 +31,23 @@ public class ProjectController {
      * 列出所有项目
      */
     @RequestMapping("/list")
-    public ApiResultModel list(){
-        List<ProjectEntity> projectEntityList = projectDao.findAll();
-        List<ProjectResultModel> resultList = new ArrayList<ProjectResultModel>();
+    public ApiResultModel list(Integer limit, Integer offset){
+        ProjectResultModel projectResultModel = new ProjectResultModel();
+        projectResultModel.setLimit(limit);
+        projectResultModel.setOffset(offset);
+        //count ALL
+        projectResultModel.setTotal(projectDao.countAllProjects());
+        //query every page
+        List<ProjectEntity> projectEntityList = projectDao.findAllProjects(limit, offset);
+        List<ProjectModel> resultList = new ArrayList<ProjectModel>();
         if (projectEntityList != null){
             for (ProjectEntity projectEntity : projectEntityList) {
-                ProjectResultModel resultModel = ProjectHelper.convert2ProjectResultModel(projectEntity);
+                ProjectModel resultModel = ProjectHelper.convert2ProjectResultModel(projectEntity);
                 resultList.add(resultModel);
             }
         }
-        return ResultBuilder.getSuccess(resultList);
+        projectResultModel.setProjectList(resultList);
+        return ResultBuilder.getSuccess(projectResultModel);
     }
 
 
@@ -52,10 +60,10 @@ public class ProjectController {
             return ErrorsResult.NO_PERMISSION;
         }
         List<ProjectEntity> projectEntityList = projectDao.getProjectsByUserId(userId);
-        List<ProjectResultModel> resultList = new ArrayList<ProjectResultModel>();
+        List<ProjectModel> resultList = new ArrayList<ProjectModel>();
         if (projectEntityList != null){
             for (ProjectEntity projectEntity : projectEntityList) {
-                ProjectResultModel resultModel = ProjectHelper.convert2ProjectResultModel(projectEntity);
+                ProjectModel resultModel = ProjectHelper.convert2ProjectResultModel(projectEntity);
                 resultList.add(resultModel);
             }
         }

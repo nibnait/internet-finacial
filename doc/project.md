@@ -1,5 +1,43 @@
 ## 项目
 
+### 列出所有项目
+#### URL:/api/project/list
+#### 请求方式：GET
+#### 参数列表：
+参数名|类型|必选|说明
+-----|---|----|---|
+limit|Integer|√|每页的个数
+offset|Integer|√|分页偏移量
+#### 返回示例：
+```
+{
+  "status": 0,
+  "data": {
+    "total": 2,
+    "limit": 1,
+    "offset": 0,
+    "projectList": [
+      {
+        "projectId": "2324ksd",
+        "title": "测试项目2",
+        "description": "test",
+        "applyAmount": 2222,
+        "bought": 0,
+        "tags": [
+          "可转让"
+        ],
+        "beginDate": "2017-04-25 17:52:41",
+        "endDate": "2017-07-28 17:52:31",
+        "interest": 10.0,
+        "minBought": 500,
+        "userId": "333",
+        "days": 93
+      }
+    ]
+  }
+}
+```
+
 ### 申请项目
 #### URL:/api/project/apply
 #### 请求方式：GET
@@ -42,7 +80,7 @@ endDate|String|√|众筹结束时间
 ```
 
 ### 查看我的所有申请项目
-#### URL:/api/project/list/{userId}
+#### URL:/api/project/myList
 #### 请求方式：GET
 #### 参数列表：
 参数名|类型|必选|说明
@@ -67,7 +105,7 @@ userId|String|√|userId
       "interest": 10.0,
       "minBought": 500,
       "userId": "fd7917c5312a4e818e3ae58bb997e9e4",
-      "days": -5
+      "days": 93
     },
     {
       "projectId": "asdfasfd",
@@ -84,8 +122,11 @@ userId|String|√|userId
       "interest": 8.0,
       "minBought": 100,
       "userId": "fd7917c5312a4e818e3ae58bb997e9e4",
-      "days": -20
+      "days": 28
     }
   ]
 }
 ```
+
+
+
